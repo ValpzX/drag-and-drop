@@ -17,21 +17,31 @@
 	</header>
 
 	<section id="game-boards">
-		<div class="puzzle-board">
-			
+		<!-- These are the draggable puzzle pieces -->
+		<div class="puzzle-pieces">
+			<img src="images/topLeft0.jpg" class="puzzle-image" alt="top left">
+			<img src="images/topRight0.jpg" class="puzzle-image" alt="top right">
+			<img src="images/bottomLeft0.jpg" class="puzzle-image" alt="bottom left">
+			<img src="images/bottomRight0.jpg" class="puzzle-image" alt="bottom right">
 		</div>
 
+		<div class="puzzle-board">
+			<!-- These are the drop zones -->
+			<div class="drop-zone tl"></div>
+			<div class="drop-zone tr"></div>
+			<div class="drop-zone bl"></div>
+			<div class="drop-zone br"></div>
+		</div>
 	</section>
 
 	<footer>
-		<p>Click Thumbmail to change pieces</p>
+		<p>Click thumbnail to change pieces</p>
 		<nav id="buttonHolder">
 			<img id="0" src="images/buttonZero.jpg" alt="puzzle background forest">
 			<img id="1" src="images/buttonOne.jpg" alt="puzzle background winter">
 			<img id="2" src="images/buttonTwo.jpg" alt="puzzle background space">
 			<img id="3" src="images/buttonThree.jpg" alt="puzzle background robots">
 		</nav>
-
 	</footer>
 
 	<script src="js/main.js"></script>
