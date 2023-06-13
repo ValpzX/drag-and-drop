@@ -23,8 +23,12 @@ function handleDragOver(e) {
 
 function handleDrop(e) {
     e.preventDefault();
-    //this line moves the dragged piece from the left side of the board and drops it into whatever dropzone we choose 
-    this.appendChild(draggedPiece);
+
+    //bug fix #1 - if the dropzone has no children then drop the puzzle piece into it
+    if (this.children.length === 0) {
+        //this line moves the dragged piece from the left side of the board and drops it into whatever dropzone we choose 
+        this.appendChild(draggedPiece);
+    }
 }
 
 //event listeners
