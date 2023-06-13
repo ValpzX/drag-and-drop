@@ -4,7 +4,7 @@ const theButtons = document.querySelectorAll("#buttonHolder img"),
     puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
     dropZones = document.querySelectorAll(".drop-zone");
 
-//store the dragged piece in a globl variable, we will need it in the handleDrop function
+//store the dragged piece in a global variable, we will need it in the handleDrop function
 let draggedPiece;
 
 //functions
@@ -21,9 +21,8 @@ function handleDragOver(e) {
     e.preventDefault();
 }
 
-function handleDrop() {
+function handleDrop(e) {
     e.preventDefault();
-    console.log("dropped");
     //this line moves the dragged piece from the left side of the board and drops it into whatever dropzone we choose 
     this.appendChild(draggedPiece);
 }
