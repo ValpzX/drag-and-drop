@@ -13,6 +13,15 @@ let draggedPiece;
 function changeBGImage() {
     puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 
+    /*technically a bug so I will label it as bug fix #3 - loop through the puzzlePieces nodeList 
+        and then set a new img src value for each puzzle piece based on the puzzle that the user has chosen*/
+    puzzlePieces.forEach(piece => {
+        /*each puzzle piece img follows the same naming convention ({piece}{num}.jpg - topRight1.jpg, topRight2.jpg, etc.)
+            so I simply retrieved the IDs I gave to each puzzle piece img and background (which were based off 
+            of the img names) and then used these to set the new src values*/
+        piece.src = `images/${piece.id}${this.id}.jpg`;
+    });
+
     //call the resetBoard() function to reset the puzzle and move any puzzle pieces back to the puzzle piece div 
     resetBoard();
 }
