@@ -1,10 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
-
 html {
 	box-sizing: border-box;
 }
+
 *, *:before, *:after {
 	box-sizing: inherit;
 }
@@ -18,6 +18,10 @@ body {
 	color:#FFF;
 	font-family: 'Luckiest Guy', sans-serif;
 	font-size:16px;
+}
+
+.hidden {
+	display: none;
 }
 
 #game-boards {
@@ -77,12 +81,10 @@ body {
 	width: 90%;
 }
 
-
 /* set positioning for pieces so they align/snap together */
 .tl img { right: 0; bottom: 0; }
 .tr img { bottom: 0; }
 .bl img { right: 0; }
-
 
 header {
 	margin-top: 20px;
