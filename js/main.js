@@ -2,7 +2,9 @@
 const theButtons = document.querySelectorAll("#buttonHolder img"),
     puzzleBoard = document.querySelector(".puzzle-board"),
     puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
-    dropZones = document.querySelectorAll(".drop-zone");
+    dropZones = document.querySelectorAll(".drop-zone"),
+    puzzlePieceDiv = document.querySelector(".puzzle-pieces"),
+    resetButton = document.querySelector("#resetBut");
 
 //store the dragged piece in a global variable, we will need it in the handleDrop function
 let draggedPiece;
@@ -10,6 +12,9 @@ let draggedPiece;
 //functions
 function changeBGImage() {
     puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+
+    //call the resetBoard() function to reset the puzzle and move any puzzle pieces back to the puzzle piece div 
+    resetBoard();
 }
 
 function handleStartDrag() {
@@ -31,8 +36,22 @@ function handleDrop(e) {
     }
 }
 
+function resetBoard() {
+    /*bug fix #2 - loop through the dropzones and check with firstChild if there is a puzzle piece in each one, if
+        there is then return the puzzle piece back to the puzzle piece div with appendChild()*/
+    dropZones.forEach(zone => {
+        /*if the dropzone has no child then it will return null when firstChild is printed to the console
+            so the if statement is used to check if it is not null and if that condition is true then it 
+            will append the puzzle piece(s) back to the puzzle piece div*/
+        if (zone.firstChild != null) {
+            puzzlePieceDiv.appendChild(zone.firstChild);
+        }
+    });
+}
+
 //event listeners
 theButtons.forEach(button => button.addEventListener("click", changeBGImage));
 puzzlePieces.forEach(piece => piece.addEventListener("dragstart", handleStartDrag));
 dropZones.forEach(zone => zone.addEventListener("dragover", handleDragOver));
 dropZones.forEach(zone => zone.addEventListener("drop", handleDrop));
+resetButton.addEventListener("click", resetBoard);
